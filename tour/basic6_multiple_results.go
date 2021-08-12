@@ -10,6 +10,7 @@ func swap(x, y string) (string, string) {
 // Multiple results
 
 // A function can return any number of results.
+//
 // The swap function returns two strings.
 func MultipleResult() {
 	a, b := swap("go", "workspace")

@@ -15,7 +15,7 @@ import (
 // 	var f float64 = float64(i)
 // 	var u uint = uint(f)
 //
-// Or, put more simply:
+// Or put more simply:
 // 	i := 42
 // 	f := float64(i)
 // 	u := uint(f)
