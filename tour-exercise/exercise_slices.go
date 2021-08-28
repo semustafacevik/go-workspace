@@ -5,7 +5,7 @@ import "golang.org/x/tour/pic"
 // https://tour.golang.org/moretypes/18
 // Exercise: Slices
 
-func Pic(dx, dy int) [][]uint8 {
+func picture(dx, dy int) [][]uint8 {
 	p := make([][]uint8, dy)
 
 	for y := range p {
@@ -39,5 +39,5 @@ func Pic(dx, dy int) [][]uint8 {
 // For visual result:
 // https://play.golang.org/p/14yIpsPP65v
 func Slices() {
-	pic.Show(Pic)
+	pic.Show(picture)
 }

@@ -10,7 +10,7 @@ import (
 // https://tour.golang.org/moretypes/23
 // Exercise: Maps
 
-func WordCount(s string) map[string]int {
+func wordCount(s string) map[string]int {
 	wc := make(map[string]int)
 	words := strings.Fields(s)
 
@@ -28,5 +28,5 @@ func WordCount(s string) map[string]int {
 // For detail:
 // https://tour.golang.org/moretypes/23
 func Maps() {
-	wc.Test(WordCount)
+	wc.Test(wordCount)
 }
