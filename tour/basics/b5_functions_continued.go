@@ -2,12 +2,12 @@ package basics
 
 import "fmt"
 
+// https://tour.golang.org/basics/5
+// Functions continued
+
 func addContinued(x, y int) int {
 	return x + y
 }
-
-// https://tour.golang.org/basics/5
-// Functions continued
 
 // When two or more consecutive named function
 // parameters share a type, you can omit

@@ -2,12 +2,12 @@ package basics
 
 import "fmt"
 
+// https://tour.golang.org/basics/6
+// Multiple results
+
 func swap(x, y string) (string, string) {
 	return y, x
 }
-
-// https://tour.golang.org/basics/6
-// Multiple results
 
 // A function can return any number of results.
 //

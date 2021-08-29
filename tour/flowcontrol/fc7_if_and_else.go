@@ -5,6 +5,9 @@ import (
 	"math"
 )
 
+// https://tour.golang.org/flowcontrol/7
+// If and else
+
 func powWithElse(x, n, lim float64) float64 {
 	if v := math.Pow(x, n); v < lim {
 		return v
@@ -14,9 +17,6 @@ func powWithElse(x, n, lim float64) float64 {
 	// can't use v here, though
 	return lim
 }
-
-// https://tour.golang.org/flowcontrol/7
-// If and else
 
 // Variables declared inside an if short statement
 // are also available inside any of the else blocks.

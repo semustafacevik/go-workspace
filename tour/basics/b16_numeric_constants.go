@@ -2,6 +2,9 @@ package basics
 
 import "fmt"
 
+// https://tour.golang.org/basics/16
+// Numeric Constants
+
 const (
 	// Create a huge number by shifting a 1 bit left 100 places.
 	// In other words, the binary number that is 1 followed by 100 zeroes.
@@ -11,12 +14,10 @@ const (
 )
 
 func needInt(x int) int { return x*10 + 1 }
+
 func needFloat(x float64) float64 {
 	return x * 0.1
 }
-
-// https://tour.golang.org/basics/16
-// Numeric Constants
 
 // Numeric constants are high-precision values.
 //

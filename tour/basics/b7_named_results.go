@@ -2,14 +2,14 @@ package basics
 
 import "fmt"
 
+// https://tour.golang.org/basics/7
+// Named return values
+
 func split(sum int) (x, y int) {
 	x = sum * 4 / 9
 	y = sum - x
 	return
 }
-
-// https://tour.golang.org/basics/7
-// Named return values
 
 // Go's return values may be named. If so,
 // they are treated as variables defined at

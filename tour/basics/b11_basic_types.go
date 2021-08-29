@@ -5,14 +5,14 @@ import (
 	"math/cmplx"
 )
 
+// https://tour.golang.org/basics/11
+// Basic types
+
 var (
 	ToBe   bool       = false
 	MaxInt uint64     = 1<<64 - 1
 	z      complex128 = cmplx.Sqrt(-5 + 12i)
 )
-
-// https://tour.golang.org/basics/11
-// Basic types
 
 // Go's basic types are:
 // 	bool

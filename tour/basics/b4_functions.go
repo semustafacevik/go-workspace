@@ -2,12 +2,12 @@ package basics
 
 import "fmt"
 
+// https://tour.golang.org/basics/4
+// Functions
+
 func add(x int, y int) int {
 	return x + y
 }
-
-// https://tour.golang.org/basics/4
-// Functions
 
 // A function can take zero or more arguments.
 //

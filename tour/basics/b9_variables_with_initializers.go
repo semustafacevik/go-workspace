@@ -2,10 +2,10 @@ package basics
 
 import "fmt"
 
-var i, j int = -1, 0
-
 // https://tour.golang.org/basics/9
 // Variables with initializers
+
+var i, j int = -1, 0
 
 // A var declaration can include
 // initializers, one per variable.

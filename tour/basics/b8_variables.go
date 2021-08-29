@@ -2,10 +2,10 @@ package basics
 
 import "fmt"
 
-var c, python, java bool
-
 // https://tour.golang.org/basics/8
 // Variables
+
+var c, python, java bool
 
 // The var statement declares a list of
 // variables; as in function argument lists,

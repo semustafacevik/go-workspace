@@ -5,15 +5,15 @@ import (
 	"math"
 )
 
+// https://tour.golang.org/flowcontrol/6
+// If with a short statement
+
 func pow(x, n, lim float64) float64 {
 	if v := math.Pow(x, n); v < lim {
 		return v
 	}
 	return lim
 }
-
-// https://tour.golang.org/flowcontrol/6
-// If with a short statement
 
 // Like for, the if statement can start with a short
 // statement to execute before the condition.
