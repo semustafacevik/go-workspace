@@ -8,7 +8,7 @@ import (
 // https://tour.golang.org/methods/2
 // Methods are functions
 
-func Abs(v Vertex) float64 {
+func abs(v vertex) float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 
@@ -18,6 +18,6 @@ func Abs(v Vertex) float64 {
 // Here's Abs written as a regular function
 // with no change in functionality.
 func MethodsFunc() {
-	v := Vertex{5, 12}
-	fmt.Println(Abs(v))
+	v := vertex{5, 12}
+	fmt.Println(abs(v))
 }

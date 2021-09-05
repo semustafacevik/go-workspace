@@ -5,9 +5,9 @@ import "fmt"
 // https://tour.golang.org/methods/11
 // Interface values
 
-type F float64
+type f float64
 
-func (f F) M() {
+func (f f) M() {
 	fmt.Println(f)
 }
 
@@ -24,15 +24,15 @@ func (f F) M() {
 // executes the method of the same name
 // on its underlying type.
 func InterfaceValues() {
-	var i I
+	var i myInterface
 
-	i = &T{"go-workspace"}
+	i = &myStruct{"go-workspace"}
 	describe(i)
 	i.M()
 
 	fmt.Println("   -----")
 
-	i = F(-100.89)
+	i = f(-100.89)
 	describe(i)
 	i.M()
 }

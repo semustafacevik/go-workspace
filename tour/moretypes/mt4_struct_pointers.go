@@ -15,7 +15,7 @@ import "fmt"
 // instead to write just p.X, without the
 // explicit dereference.
 func StructPointers() {
-	v := Vertex{1, 2}
+	v := vertex{1, 2}
 	p := &v
 
 	p.X = 1e2

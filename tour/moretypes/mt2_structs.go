@@ -5,12 +5,12 @@ import "fmt"
 // https://tour.golang.org/moretypes/2
 // Structs
 
-type Vertex struct {
+type vertex struct {
 	X int
 	Y int
 }
 
 // A struct is a collection of fields.
 func Structs() {
-	fmt.Println(Vertex{1, 2})
+	fmt.Println(vertex{1, 2})
 }

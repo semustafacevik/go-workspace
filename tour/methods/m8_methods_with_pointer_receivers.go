@@ -8,12 +8,12 @@ import (
 // https://tour.golang.org/methods/8
 // Choosing a value or pointer receiver
 
-func (v *Vertex) ScaleM8(f float64) {
+func (v *vertex) ScaleM8(f float64) {
 	v.X = v.X * f
 	v.Y = v.Y * f
 }
 
-func (v *Vertex) AbsM8() float64 {
+func (v *vertex) AbsM8() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 
@@ -38,7 +38,7 @@ func (v *Vertex) AbsM8() float64 {
 // pointer receivers but not a mixture of both.
 // (We'll see why over the next few pages.)
 func MethodsWithPointerReceivers() {
-	v := &Vertex{3, 4}
+	v := &vertex{3, 4}
 	fmt.Printf("Before scalling: %+v - Abs: %v\n", v, v.AbsM8())
 	v.ScaleM8(2)
 	fmt.Printf("After scalling : %+v - Abs: %v\n", v, v.AbsM8())

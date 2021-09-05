@@ -44,7 +44,6 @@ func Append() {
 	s = append(s, 2, 3, 4)
 	printSlice(s)
 
-	// TODO: research on slice cap
 	s = append(s, 5)
 	printSlice(s)
 }

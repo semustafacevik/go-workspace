@@ -7,9 +7,9 @@ import (
 // https://tour.golang.org/methods/3
 // Methods continued
 
-type MyFloat float64
+type myFloat float64
 
-func (f MyFloat) Abs() float64 {
+func (f myFloat) Abs() float64 {
 	if f < 0 {
 		return float64(-f)
 	}
@@ -30,6 +30,6 @@ func (f MyFloat) Abs() float64 {
 // another package (which includes
 // the built-in types such as int).
 func MethodsContunied() {
-	f := MyFloat(-100.89)
+	f := myFloat(-100.89)
 	fmt.Println(f.Abs())
 }

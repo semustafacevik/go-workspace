@@ -5,16 +5,16 @@ import "fmt"
 // https://tour.golang.org/methods/12
 // Interface values with nil underlying values
 
-type I2 interface {
+type myInterface2 interface {
 	MWithNilCheck()
 }
 
-func (t *T) MWithNilCheck() {
-	if t == nil {
+func (st *myStruct) MWithNilCheck() {
+	if st == nil {
 		fmt.Println("<nil>")
 		return
 	}
-	fmt.Println(t.S)
+	fmt.Println(st.S)
 }
 
 // If the concrete value inside the interface
@@ -30,16 +30,16 @@ func (t *T) MWithNilCheck() {
 // Note that an interface value that holds
 // a nil concrete value is itself non-nil.
 func InterfaceValuesWithNil() {
-	var i I2
-	var t *T
+	var i myInterface2
+	var st *myStruct
 
-	i = t
+	i = st
 	describe(i)
 	i.MWithNilCheck()
 
 	fmt.Println("   -----")
 
-	i = &T{"hello"}
+	i = &myStruct{"go-workspace"}
 	describe(i)
 	i.MWithNilCheck()
 }

@@ -5,11 +5,11 @@ import "fmt"
 // https://tour.golang.org/moretypes/19
 // Maps
 
-type Location struct {
+type location struct {
 	Lat, Long float64
 }
 
-var m map[string]Location
+var m map[string]location
 
 // A map maps keys to values.
 //
@@ -20,9 +20,9 @@ var m map[string]Location
 // the given type, initialized and ready
 // for use.
 func Maps() {
-	m = make(map[string]Location)
+	m = make(map[string]location)
 
-	m["Clock Tower"] = Location{
+	m["Clock Tower"] = location{
 		38.41800, 27.12389,
 	}
 

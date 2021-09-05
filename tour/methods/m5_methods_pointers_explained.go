@@ -5,7 +5,7 @@ import "fmt"
 // https://tour.golang.org/methods/5
 // Pointers and functions
 
-func Scale(v *Vertex, f float64) {
+func scale(v *vertex, f float64) {
 	v.X = v.X * f
 	v.Y = v.Y * f
 }
@@ -21,7 +21,7 @@ func Scale(v *Vertex, f float64) {
 // (If you're not sure,
 // continue to the next page.)
 func MethodsPointersExplained() {
-	v := Vertex{5, 12}
-	Scale(&v, 10)
-	fmt.Println(Abs(v))
+	v := vertex{5, 12}
+	scale(&v, 10)
+	fmt.Println(abs(v))
 }
