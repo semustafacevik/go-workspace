@@ -10,8 +10,8 @@ import "fmt"
 // 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 // }
 
-func AbsFunc(v Vertex) float64 {
-	return Abs(v)
+func absFunc(v vertex) float64 {
+	return abs(v)
 }
 
 // The equivalent thing happens
@@ -36,9 +36,9 @@ func AbsFunc(v Vertex) float64 {
 // In this case, the method call p.Abs()
 // is interpreted as (*p).Abs().
 func IndirectionValues() {
-	v := Vertex{3, 4}
-	fmt.Println(v.Abs(), AbsFunc(v))
+	v := vertex{3, 4}
+	fmt.Println(v.Abs(), absFunc(v))
 
-	p := &Vertex{5, 12}
-	fmt.Println(p.Abs(), AbsFunc(*p))
+	p := &vertex{5, 12}
+	fmt.Println(p.Abs(), absFunc(*p))
 }

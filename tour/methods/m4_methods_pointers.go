@@ -5,7 +5,7 @@ import "fmt"
 // https://tour.golang.org/methods/4
 // Pointer receivers
 
-func (v *Vertex) Scale(f float64) {
+func (v *vertex) Scale(f float64) {
 	v.X = v.X * f
 	v.Y = v.Y * f
 }
@@ -40,7 +40,7 @@ func (v *Vertex) Scale(f float64) {
 // change the Vertex value declared in
 // the main function.
 func MethodsPointers() {
-	v := Vertex{3, 4}
+	v := vertex{3, 4}
 	v.Scale(10)
 	fmt.Println(v.Abs())
 }

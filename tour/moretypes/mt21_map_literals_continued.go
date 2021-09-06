@@ -5,7 +5,7 @@ import "fmt"
 // https://tour.golang.org/moretypes/21
 // Map literals continued
 
-var m3 = map[string]Location{
+var m3 = map[string]location{
 	"Clock Tower": {38.41800, 27.12389},
 	"Google":      {37.42202, -122.08408},
 }

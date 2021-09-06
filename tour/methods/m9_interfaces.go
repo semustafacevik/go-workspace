@@ -5,7 +5,7 @@ import "fmt"
 // https://tour.golang.org/methods/9
 // Interfaces
 
-type Abser interface {
+type abser interface {
 	AbsM9() float64
 }
 
@@ -21,10 +21,10 @@ type Abser interface {
 // the Abs method is defined only on *Vertex
 // (the pointer type).
 func Interfaces() {
-	var a Abser
+	var a abser
 
-	f := MyFloat(-100.89)
-	v := Vertex{3, 4}
+	f := myFloat(-100.89)
+	v := vertex{3, 4}
 
 	a = f // a MyFloat implements Abser
 	fmt.Println(a.AbsM9())
@@ -37,10 +37,10 @@ func Interfaces() {
 	// a = v
 }
 
-func (f MyFloat) AbsM9() float64 {
+func (f myFloat) AbsM9() float64 {
 	return f.Abs()
 }
 
-func (v *Vertex) AbsM9() float64 {
+func (v *vertex) AbsM9() float64 {
 	return v.Abs()
 }

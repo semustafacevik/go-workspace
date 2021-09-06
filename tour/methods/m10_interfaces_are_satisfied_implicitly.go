@@ -5,18 +5,18 @@ import "fmt"
 // https://tour.golang.org/methods/10
 // Interfaces are implemented implicitly
 
-type I interface {
+type myInterface interface {
 	M()
 }
 
-type T struct {
+type myStruct struct {
 	S string
 }
 
 // This method means type T implements the interface I,
 // but we don't need to explicitly declare that it does so.
-func (t T) M() {
-	fmt.Println(t.S)
+func (st myStruct) M() {
+	fmt.Println(st.S)
 }
 
 // A type implements an interface by
@@ -29,6 +29,6 @@ func (t T) M() {
 // which could then appear in any package
 // without prearrangement.
 func InterfacesAreSatisfiedImplicitly() {
-	var i I = T{"go-workspace"}
+	var i myInterface = myStruct{"go-workspace"}
 	i.M()
 }

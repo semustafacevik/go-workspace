@@ -6,10 +6,10 @@ import "fmt"
 // Struct Literals
 
 var (
-	v1 = Vertex{1, 2}    // has type Vertex
-	v2 = Vertex{Y: 1}    // X:0 is implicit
-	v3 = Vertex{}        // X:0 and Y:0
-	p  = &Vertex{11, 22} // has type *Vertex
+	v1 = vertex{1, 2}    // has type Vertex
+	v2 = vertex{Y: 1}    // X:0 is implicit
+	v3 = vertex{}        // X:0 and Y:0
+	p  = &vertex{11, 22} // has type *Vertex
 )
 
 // A struct literal denotes a newly

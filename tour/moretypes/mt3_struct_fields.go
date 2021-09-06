@@ -7,7 +7,7 @@ import "fmt"
 
 // Struct fields are accessed using a dot.
 func StructFields() {
-	v := Vertex{1, 2}
+	v := vertex{1, 2}
 	v.X = 11
 
 	fmt.Println(v.X, v.Y)

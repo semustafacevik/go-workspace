@@ -8,11 +8,11 @@ import (
 // https://tour.golang.org/methods/1
 // Methods
 
-type Vertex struct {
+type vertex struct {
 	X, Y float64
 }
 
-func (v Vertex) Abs() float64 {
+func (v vertex) Abs() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 
@@ -29,6 +29,6 @@ func (v Vertex) Abs() float64 {
 // In this example, the Abs method has
 // a receiver of type Vertex named v.
 func Methods() {
-	v := Vertex{3, 4}
+	v := vertex{3, 4}
 	fmt.Println(v.Abs())
 }

@@ -11,7 +11,7 @@ package methods
 // no type inside the interface tuple to
 // indicate which concrete method to call.
 func NilInterfaceValues() {
-	var i I
+	var i myInterface
 	describe(i)
 	// i.M() // run-time error
 }

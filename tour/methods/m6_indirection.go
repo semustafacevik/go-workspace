@@ -11,8 +11,8 @@ import "fmt"
 // 	v.Y = v.Y * f
 // }
 
-func ScaleFunc(v *Vertex, f float64) {
-	Scale(v, f)
+func scaleFunc(v *vertex, f float64) {
+	scale(v, f)
 }
 
 // Comparing the previous two programs,
@@ -40,13 +40,13 @@ func ScaleFunc(v *Vertex, f float64) {
 // (&v).Scale(5) since the Scale method has
 // a pointer receiver.
 func Indirection() {
-	v := Vertex{3, 4}
+	v := vertex{3, 4}
 	v.Scale(2)
-	ScaleFunc(&v, 5)
+	scaleFunc(&v, 5)
 
-	p := &Vertex{12, 5}
+	p := &vertex{12, 5}
 	p.Scale(3)
-	ScaleFunc(p, 7)
+	scaleFunc(p, 7)
 
 	fmt.Println(v, p)
 }
