@@ -22,13 +22,14 @@ func (c *safeCache) Any(url string) bool {
 	c.m.Lock()
 	defer c.m.Unlock()
 
-	_, ok := c.v[url]
-	if !ok {
-		c.v[url] = true
-		return false
-	}
+	return c.v[url]
+}
 
-	return true
+func (c *safeCache) Add(url string) {
+	c.m.Lock()
+	defer c.m.Unlock()
+
+	c.v[url] = true
 }
 
 var cache = &safeCache{v: make(map[string]bool)}
@@ -37,6 +38,8 @@ func crawl(url string, depth int, fetcher fetcher) {
 	if depth <= 0 || cache.Any(url) {
 		return
 	}
+
+	cache.Add(url)
 
 	body, urls, err := fetcher.Fetch(url)
 	if err != nil {
