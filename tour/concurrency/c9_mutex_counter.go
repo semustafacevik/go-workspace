@@ -9,19 +9,19 @@ import (
 // https://tour.golang.org/concurrency/9
 // sync.Mutex
 
-type SafeCounter struct {
+type safeCounter struct {
 	mu sync.Mutex
 	v  map[string]int
 }
 
-func (c *SafeCounter) Inc(key string) {
+func (c *safeCounter) Inc(key string) {
 	c.mu.Lock() // Lock so only one goroutine at a time can access the map c.v.
 
 	c.v[key]++
 	c.mu.Unlock()
 }
 
-func (c *SafeCounter) Value(key string) int {
+func (c *safeCounter) Value(key string) int {
 	c.mu.Lock() // Lock so only one goroutine at a time can access the map c.v.
 
 	defer c.mu.Unlock()
@@ -54,7 +54,7 @@ func (c *SafeCounter) Value(key string) int {
 // We can also use defer to ensure the mutex
 // will be unlocked as in the Value method.
 func MutexCounter() {
-	c := SafeCounter{v: make(map[string]int)}
+	c := safeCounter{v: make(map[string]int)}
 
 	for i := 0; i < 1000; i++ {
 		go c.Inc("some-key")
