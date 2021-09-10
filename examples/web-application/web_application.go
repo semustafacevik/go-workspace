@@ -31,10 +31,14 @@ func loadPage(title string) (*Page, error) {
 	return &Page{Title: title, Body: body}, nil
 }
 
+var templates = template.Must(template.ParseFiles(
+	"examples/web-application/html-templates/edit.html",
+	"examples/web-application/html-templates/view.html"))
+
 func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
-	filename := "examples/web-application/html-templates/" + tmpl + ".html"
-	t, _ := template.ParseFiles(filename)
-	t.Execute(w, p)
+	if err := templates.ExecuteTemplate(w, tmpl+".html", p); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 }
 
 func viewHandler(w http.ResponseWriter, r *http.Request) {
@@ -63,7 +67,11 @@ func saveHandler(w http.ResponseWriter, r *http.Request) {
 	body := r.FormValue("body")
 
 	p := &Page{Title: title, Body: []byte(body)}
-	p.save()
+	if err := p.save(); err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+
 	http.Redirect(w, r, "/view/"+title, http.StatusFound)
 }
 
