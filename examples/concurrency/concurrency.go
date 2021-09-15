@@ -22,11 +22,13 @@ var links = []string{
 	"https://kaggle.com/semustafacevik",
 }
 
-func getLink(link string) {
+func getLink(link string) (*http.Response, error) {
 	if res, err := http.Get(link); err != nil {
-		fmt.Println(err)
+		fmt.Println("ERR:", err)
+		return nil, err
 	} else {
 		fmt.Printf("[%d] - %s\n", res.StatusCode, link)
+		return res, nil
 	}
 }
 
@@ -39,11 +41,8 @@ func getLinkWithWG(link string, wg *sync.WaitGroup) {
 func getLinkAndLogStatus(link string, wg *sync.WaitGroup) {
 	defer wg.Done()
 
-	if res, err := http.Get(link); err != nil {
-		fmt.Println(err)
-	} else {
-		fmt.Printf("[%d] - %s\n", res.StatusCode, link)
-
+	res, _ := getLink(link)
+	if res != nil {
 		mutex.Lock()
 		statuses[res.StatusCode]++
 		mutex.Unlock()
@@ -51,10 +50,10 @@ func getLinkAndLogStatus(link string, wg *sync.WaitGroup) {
 }
 
 func getLinkWithChannel(link string, ch chan string) {
-	if res, err := http.Get(link); err != nil {
-		ch <- err.Error()
+	if res, err := getLink(link); err != nil {
+		ch <- fmt.Sprintf("[channel-err]: %s", err)
 	} else {
-		ch <- fmt.Sprintf("[%d] - %s", res.StatusCode, link)
+		ch <- fmt.Sprintf("[channel-value]: [%d] - %s", res.StatusCode, link)
 	}
 }
 
