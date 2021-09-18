@@ -5,6 +5,14 @@ import (
 	"math"
 )
 
+func main() {
+	ExGeometry()
+	//ExAnimal()
+	//ExDescribe()
+	//ExCalculate()
+	//ExCalculate2()
+}
+
 // -----------------
 // https://gobyexample.com/interfaces
 // -----------------
@@ -57,15 +65,15 @@ func Measure(gc GeometryCalculator) {
 	fmt.Println()
 }
 
-// func main() {
-// 	s := &Square{edge: 2}
-// 	r := &Rectangle{width: 3, height: 4}
-// 	c := &Circle{radius: 5}
+func ExGeometry() {
+	s := &Square{edge: 2}
+	r := &Rectangle{width: 3, height: 4}
+	c := &Circle{radius: 5}
 
-// 	Measure(s)
-// 	Measure(r)
-// 	Measure(c)
-// }
+	Measure(s)
+	Measure(r)
+	Measure(c)
+}
 
 // -----------------
 // https://zetcode.com/golang/interface/
@@ -93,13 +101,13 @@ func (d Duck) Sound() string {
 	return "Quack!"
 }
 
-// func main() {
-// 	animals := []Animal{Dog{}, Cat{}, Duck{}}
+func ExAnimal() {
+	animals := []Animal{Dog{}, Cat{}, Duck{}}
 
-// 	for _, a := range animals {
-// 		fmt.Println(a.Sound())
-// 	}
-// }
+	for _, a := range animals {
+		fmt.Println(a.Sound())
+	}
+}
 
 // -----------------
 // https://golangbot.com/interfaces-part-2
@@ -127,17 +135,17 @@ func (a *Address) Describe() {
 	fmt.Printf("Province: %s - Country: %s", a.province, a.country)
 }
 
-// func main() {
-// 	var d Describer
+func ExDescribe() {
+	var d Describer
 
-// 	p := &Person{"Ronaldo", 36}
-// 	d = p
-// 	d.Describe()
+	p := &Person{"Ronaldo", 36}
+	d = p
+	d.Describe()
 
-// 	a := &Address{province: "Madeira", country: "Portugal"}
-// 	d = a
-// 	d.Describe()
-// }
+	a := &Address{province: "Madeira", country: "Portugal"}
+	d = a
+	d.Describe()
+}
 
 // -----------------
 
@@ -166,27 +174,27 @@ func (e *Employee) CalculateBonus() float64 {
 	return float64(e.bonusCount) * e.bonusFee
 }
 
-// func main() {
-// 	e := &Employee{
-// 		name:       "Ashley",
-// 		salary:     12403.27,
-// 		bonusCount: 2,
-// 		bonusFee:   BonusFee,
-// 	}
+func ExCalculate() {
+	e := &Employee{
+		name:       "Ashley",
+		salary:     12403.27,
+		bonusCount: 2,
+		bonusFee:   BonusFee,
+	}
 
-// 	var sc SalaryCalculator = e
-// 	sc.DisplaySalary()
+	var sc SalaryCalculator = e
+	sc.DisplaySalary()
 
-// 	var bc BonusCalculator = e
-// 	fmt.Println("Bonus:", bc.CalculateBonus())
-// }
+	var bc BonusCalculator = e
+	fmt.Println("Bonus:", bc.CalculateBonus())
+}
 
 type EmployeeOperations interface {
 	SalaryCalculator
 	BonusCalculator
 }
 
-func main() {
+func ExCalculate2() {
 	e := &Employee{
 		name:       "James",
 		salary:     9621.48,
