@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"sync"
 	"time"
@@ -24,7 +25,7 @@ var links = []string{
 
 func getLink(link string) (*http.Response, error) {
 	if res, err := http.Get(link); err != nil {
-		fmt.Println("ERR:", err)
+		log.Println(err)
 		return nil, err
 	} else {
 		fmt.Printf("[%d] - %s\n", res.StatusCode, link)
@@ -49,11 +50,13 @@ func getLinkAndLogStatus(link string, wg *sync.WaitGroup) {
 	}
 }
 
-func getLinkWithChannel(link string, ch chan string) {
+func getLinkWithChannel(link string, wg *sync.WaitGroup, ch chan string) {
+	defer wg.Done()
+
 	if res, err := getLink(link); err != nil {
 		ch <- fmt.Sprintf("[channel-err]: %s", err)
 	} else {
-		ch <- fmt.Sprintf("[channel-value]: [%d] - %s", res.StatusCode, link)
+		ch <- fmt.Sprintf("[channel-val]: %s - (%d)", link, res.StatusCode)
 	}
 }
 
@@ -109,15 +112,20 @@ func addingMutex() {
 }
 
 func withChannel() {
+	wg := sync.WaitGroup{}
 	ch := make(chan string, len(links))
 
 	for _, link := range links {
-		go getLinkWithChannel(link, ch)
+		wg.Add(1)
+		go getLinkWithChannel(link, &wg, ch)
 	}
+
+	go func() {
+		wg.Wait()
+		close(ch)
+	}()
 
 	for msg := range ch {
 		fmt.Println(msg)
 	}
-
-	// TODO : ask stackoverflow
 }
