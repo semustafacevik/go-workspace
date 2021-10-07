@@ -11,8 +11,9 @@ type Proxy interface {
 }
 
 var proxies = []Proxy{
-	NewLimitProxy("user", 5, 3*time.Minute),
-	NewLimitProxy("channel", 10, 10*time.Minute),
+	//NewLimitProxy("user", 5, 3*time.Minute),
+	//NewLimitProxy("project", 10, 10*time.Minute),
+	NewCacheProxy("user", 1*time.Minute),
 }
 
 func ProxyHandler(c *fiber.Ctx) error {
