@@ -35,6 +35,7 @@ func (p CacheProxy) Proxy(c *fiber.Ctx) error {
 
 	if v, ok := cache[path]; ok && v.ttl.After(time.Now()) {
 		c.Response().SetBody(v.body)
+		c.Response().Header.Add(fiber.HeaderContentType, fiber.MIMEApplicationJSON)
 		c.Response().Header.Add("cache-control", fmt.Sprintf("max-age:%d", p.ttl/time.Second))
 		return nil
 	}
