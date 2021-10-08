@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gofiber/fiber/v2"
 	. "github.com/semustafacevik/go-workspace/go-turkiye/proxy"
+	"log"
 )
 
 func main() {
@@ -14,5 +15,5 @@ func main() {
 
 	app.Get("/:key/*", ProxyHandler)
 
-	app.Listen(":3000")
+	log.Fatal(app.Listen(":3000"))
 }
