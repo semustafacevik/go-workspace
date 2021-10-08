@@ -42,7 +42,9 @@ func (p LimitProxy) Proxy(c *fiber.Ctx) error {
 		mutex.Unlock()
 	}
 
-	c.SendString("go-workspace | proxy -> " + path)
+	if err := c.SendString("go-workspace | proxy -> " + path); err != nil {
+		return err
+	}
 
 	mutex.Lock()
 	counter[path].count++

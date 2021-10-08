@@ -48,7 +48,7 @@ func (p CacheProxy) Proxy(c *fiber.Ctx) error {
 	}
 
 	if c.Response().StatusCode() != fiber.StatusOK {
-		return fiber.ErrBadRequest
+		return fiber.NewError(c.Response().StatusCode(), "Check your request")
 	}
 
 	mutex.Lock()
